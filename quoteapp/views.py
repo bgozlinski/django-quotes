@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from quoteapp.forms import QuoteForm, AuthorForm
 from quoteapp.models import Author, Quote
 
@@ -10,6 +11,7 @@ def main(request):
     return render(request, 'base.html', {'quotes': quotes})
 
 
+@login_required
 def add_author(request):
     if request.method == 'POST':
         form = AuthorForm(request.POST)
@@ -21,6 +23,7 @@ def add_author(request):
     return render(request, 'authors/add_author.html', {'form': form})
 
 
+@login_required
 def add_quote(request):
     authors = Author.objects.all()
 

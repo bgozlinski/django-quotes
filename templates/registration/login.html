@@ -1,0 +1,45 @@
+{% extends "includes/header.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card my-5">
+                <form action="{% url 'users:login' %}" method="post" class="card-body cardbody-color p-lg-5">
+                    {% csrf_token %}
+
+                    {% if messages %}
+                        <div>
+                            {% for message in messages %}
+                                <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <div class="mb-3">
+                        <label for="id_username" class="form-label">Username:</label>
+                        <input type="text" name="username" id="id_username" class="form-control" 
+                               value="{{ form.username.value|default_if_none:'' }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_password" class="form-label">Password:</label>
+                        <input type="password" name="password" id="id_password" class="form-control" 
+                               value="{{ form.password.value|default_if_none:'' }}">
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                        <a href="{% url 'users:signup' %}" class="btn btn-outline-primary">Register</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

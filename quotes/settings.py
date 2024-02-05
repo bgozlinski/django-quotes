@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 # Installed new Apps
 INSTALLED_APPS = list(INSTALLED_APPS) + [
     'quoteapp',
+    'users',
 ]
 
 # Installed bootstrap5
@@ -148,3 +149,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+LOGIN_URL = 'users:login'
+LOGIN_REDIRECT_URL = 'quoteapp:main'
+LOGOUT_REDIRECT_URL = 'quoteapp:main'
