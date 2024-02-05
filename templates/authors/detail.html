@@ -1,0 +1,15 @@
+{% extends "includes/header.html" %}
+
+{% block content %}
+    <header>
+        <h1>{{ author.first_name }} {{ author.last_name }}</h1>
+    </header>
+    
+    <section class="biography">
+        <p><strong>Born:</strong> {{ author.birth_date }} in {{ author.birth_place }}<br>
+        <strong>Description:</strong> <p>{{ author.description }}
+
+    </section>
+
+    
+{% endblock %}
