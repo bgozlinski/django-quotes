@@ -1,0 +1,24 @@
+{% extends "includes/header.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Quotes</h2>
+    {% for quote in quotes %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>{{ quote.quote_text }}</p>
+                    <footer class="blockquote-footer">{{ quote.author.first_name }} {{ quote.author.last_name }}</footer>
+                </blockquote>
+            </div>
+            <div class="card-footer">
+                {% for tag in quote.tags.all %}
+                    <span class="badge bg-secondary">{{ tag.name }}</span>
+                {% endfor %}
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-center">No quotes available.</p>
+    {% endfor %}
+</div>
+{% endblock %}

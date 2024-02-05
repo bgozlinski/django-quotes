@@ -1,0 +1,44 @@
+<!DOCTYPEhtml>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Quotes to Scrape App</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load crispy_forms_tags %}
+    {% load static %}
+
+</head>
+
+<body>
+    <main class="container">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'quoteapp:main' %}">Quotes to Scrape</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <ul class="navbar-nav me-auto">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'quoteapp:add_author' %}">Add Author</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'quoteapp:add_quote' %}">Add Quote</a>
+                        </li>
+                        
+                    </ul>
+                    {% if user.is_authenticated %}
+                        <a class="nav-link" href="">Logout</a>
+                    {% else %}
+                        <a class="nav-link" href="">Login</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    {% block content %} {% endblock %}
+    </main>
+</body>
+</html>
