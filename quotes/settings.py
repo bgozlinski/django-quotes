@@ -95,12 +95,24 @@ WSGI_APPLICATION = "quotes.wsgi.application"
 
 DATABASES = {
     'default': {
+        # PostgreSQL configuration
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': config['DB_NAME'],
         'USER': config['DB_USER'],
         'PASSWORD': config['DB_PASSWORD'],
         'HOST': config['DB_HOST'],
         'PORT': config['DB_PORT'],
+    },
+    'mongodb': {
+        # MongoDB configuration
+        'ENGINE': 'djongo',
+        'NAME': config['MONGODB_NAME'],
+        'CLIENT': {
+            'host': config['MONGODB_HOST'],
+            'port': config['MONGODB_PORT'],
+            'username': config['MONGODB_USERNAME'],
+            'password': config['MONGODB_PASSWORD'],
+        },
     }
 }
 
