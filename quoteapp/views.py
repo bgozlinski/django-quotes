@@ -2,11 +2,15 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from quoteapp.forms import QuoteForm, AuthorForm
 from quoteapp.models import Author, Quote
+from django.core.paginator import Paginator
 
 
 # Create your views here.
 def main(request):
-    quotes = Quote.objects.select_related('author').all()
+    quote_list = Quote.objects.select_related('author').all()
+    paginator = Paginator(quote_list, 3)
+    page_number = request.GET.get('page')
+    quotes = paginator.get_page(page_number)
 
     return render(request, 'base.html', {'quotes': quotes})
 
