@@ -7,7 +7,7 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 def main(request):
-    quote_list = Quote.objects.select_related('author').all()
+    quote_list = Quote.objects.all().order_by('id')
     paginator = Paginator(quote_list, 3)
     page_number = request.GET.get('page')
     quotes = paginator.get_page(page_number)
@@ -50,4 +50,3 @@ def add_quote(request):
 def detail_author(request, author_id):
     author = get_object_or_404(Author, pk=author_id)
     return render(request, 'authors/detail.html', {'author': author})
-

@@ -29,7 +29,7 @@ SECRET_KEY = config['SECRET']
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 INSTALLED_APPS = list(INSTALLED_APPS) + [
     'quoteapp',
     'users',
+    'scraperapp',
 ]
 
 # Installed bootstrap5
