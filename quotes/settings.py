@@ -55,8 +55,6 @@ INSTALLED_APPS = list(INSTALLED_APPS) + [
 # Installed bootstrap5
 INSTALLED_APPS = list(INSTALLED_APPS) + [
     'bootstrap5',
-    "crispy_forms",
-    "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
@@ -104,17 +102,6 @@ DATABASES = {
         'HOST': config['DB_HOST'],
         'PORT': config['DB_PORT'],
     },
-    'mongodb': {
-        # MongoDB configuration
-        'ENGINE': 'djongo',
-        'NAME': config['MONGODB_NAME'],
-        'CLIENT': {
-            'host': config['MONGODB_HOST'],
-            'port': config['MONGODB_PORT'],
-            'username': config['MONGODB_USERNAME'],
-            'password': config['MONGODB_PASSWORD'],
-        },
-    }
 }
 
 
@@ -158,10 +145,6 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-
-CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 LOGIN_URL = 'users:login'
 LOGIN_REDIRECT_URL = 'quoteapp:main'

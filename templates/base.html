@@ -33,12 +33,12 @@
             {% if quotes.has_previous %}
                 <li class="page-item">
                     <a class="page-link" href="?page=1" aria-label="First">
-                        <span aria-hidden="true">&laquo;&laquo;</span>
+                        <span aria-hidden="true">First</span>
                     </a>
                 </li>
                 <li class="page-item">
                     <a class="page-link" href="?page={{ quotes.previous_page_number }}" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
+                        <span aria-hidden="true">Previous</span>
                     </a>
                 </li>
             {% endif %}
@@ -53,13 +53,13 @@
 
             {% if quotes.has_next %}
                 <li class="page-item">
-                    <a class="page-link" href="?page={{ quotes.next_page_number }}" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
+                    <a class="page-link next" href="?page={{ quotes.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true">Next</span>
                     </a>
                 </li>
                 <li class="page-item">
                     <a class="page-link" href="?page={{ quotes.paginator.num_pages }}" aria-label="Last">
-                        <span aria-hidden="true">&raquo;&raquo;</span>
+                        <span aria-hidden="true">Last</span>
                     </a>
                 </li>
             {% endif %}
